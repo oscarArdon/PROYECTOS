@@ -1,0 +1,15 @@
+﻿@*@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}*@
+
+@{ 
+    ViewBag.Title = "Bienvenido";
+}
+
+<h2>Bievenido al controlador WelcomeController</h2>
+<ul>
+    @for(int i=0; i<ViewBag.NumVeces; i++)
+     {
+        <li>@ViewBag.Mensaje, Veces mostrado=@(i+1)</li>
+     }
+</ul>
