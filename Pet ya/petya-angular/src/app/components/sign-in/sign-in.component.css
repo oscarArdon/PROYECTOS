@@ -1,0 +1,138 @@
+html{
+    scroll-behavior: smooth;
+}
+
+@font-face{
+    font-family: 'freestyle-script';
+    src: url(../../../assets/fonts/FREESCPT.TTF);
+}
+
+.navbar{    
+    background-color: #096B67 !important;        
+}
+
+.nav-item > a{
+    color: white !important;
+    cursor: pointer;
+}
+
+.nav-item{
+    margin-left: 40px;
+}
+
+.bg-vet, form > .btn-reg, form > .btn-reg:hover{
+    background-color: #096B67 !important;    
+    color: white;
+}
+
+.btn-reg, .btn-reg:hover{
+    background-color: #096B67 !important;    
+    color: white;
+}
+
+.fondo{
+    background-image: url(../../../assets/img/fotos/filename.png);
+    background-size: contain;    
+    background-repeat: no-repeat;
+    background-position: right;
+    height: 150px;    
+    position: relative;
+    top: 14;
+}
+
+.parrafo{
+    font-size: 3vw;
+    font-family: freestyle-script;
+    color: white;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+@media screen and (max-width: 995px){
+    #header{
+        display: none;
+    }
+
+    nav{
+        position: fixed;
+        top: 0;
+    }
+}
+
+.registro{
+    background-image: url(../../../assets/img/fotos/Foto1.jpg);
+    background-position: 5% 50%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    clear: both;
+    height: min-content;
+    position: relative;
+}
+
+.contenido{
+    width: 100%;
+    min-height: 80vh;
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+.text-regis{
+    display: flex;
+    flex-wrap: wrap;
+    align-content: flex-end;
+}
+
+a{
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.form-registro{
+    /*background-color: rgba(9, 107, 103, 0.2);*/
+    background-color:rgba(153, 189, 187, 0.4);
+    padding: 20px;
+    box-sizing: border-box;         
+}
+
+.form-registro .titulo, .p{
+    color: white;
+    font-size: 2.5rem;
+    font-weight: 300;
+    line-height: 1.2;
+}
+
+.form-registro input[type=text]{
+    margin-top: 10px;
+}
+
+.form-registro .inp{
+    border: none;
+    background: transparent;
+    border-bottom: 1px solid white;
+    border-bottom-right-radius: 0px;
+    border-bottom-left-radius: 0px;
+    padding: 5px 10px;
+    outline: none;
+    color: white;
+    opacity: 1;
+}
+
+.form-registro .inp:focus{
+    background: transparent;
+    border-color: inherit;
+    box-shadow: none;
+    color: white;
+    opacity: 1;
+    border-bottom: 1px solid white;    
+}
+
+[placeholder]:focus::-webkit-input-placeholder{
+    transition: text-indent 0.4s 0.4s ease;
+    text-indent: -100%;
+    opacity: 1;
+}
+
+.form-registro input::placeholder{
+    color: white;
+    opacity: 1;
+}

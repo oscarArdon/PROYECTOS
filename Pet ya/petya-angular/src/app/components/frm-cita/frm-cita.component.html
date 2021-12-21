@@ -1,0 +1,209 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard cliente</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.js"
+        integrity="sha512-WNLxfP/8cVYL9sj8Jnp6et0BkubLP31jhTG9vhL/F5uEZmg5wEzKoXp1kJslzPQWwPT1eyMiSxlKCgzHLOTOTQ=="
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+        integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+        crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+        crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <!--INICIO MENU -->
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <a class="navbar-brand" href="#">
+            <img src="../../assets/img/logo.png" width="170" height="70" loading="lazy">
+        </a>
+        <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId"
+            aria-controls="collapsibleNavId" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="collapsibleNavId">
+            <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+                <li class="nav-item active">
+                    <a class="nav-link" routerLink="/index">Inicio<span class="sr-only"></span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link">{{authService.userData.email}}</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" (click)="authService.SignOut()">Cerrar sesión</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <!--FIN MENU -->
+    <div class="container-fluid" id="header">
+        <div class="row bg-vet">
+            <div class="col-lg-8">
+                <div class="fondo mr-5"></div>
+            </div>
+            <div class="col-lg-4 my-auto">
+                <div class="parrafo">
+                    <p>Emergencia?<br>
+                        2265-7895</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--Contenido-->
+    <div class="container-fluid">
+        <div class="row">
+            <!--Menu lateral-->
+            <div class="col-lg-3">
+                <app-dashboard-cliente></app-dashboard-cliente>
+            </div>
+            <!--Fin Menu lateral-->
+            <!--Formulario-->
+            <div class="col-lg-9">
+              <div class="container mt-3">    
+                <h2>Nueva cita</h2>
+                <br>
+                
+                <form #citaForm="ngForm">     
+                      <div class="form-row">                      
+                        <div class="form-group col-md-6">
+                            <label for="empleado">Empleado</label>
+                            <select [(ngModel)]="frmcita.id_empleado" required [(ngModel)]="objecita.id_empleado" name="emplea" id="" class="form-control" #emple (change)="combohorario(emple.value)" #emplea="ngModel">
+                              <option *ngFor="let emp of empleados" value="{{emp.id}}">{{emp.nombres}}, {{emp.apellidos}}</option>
+                            </select>
+                            <div *ngIf="(emplea.invalid && (emplea.dirty || emplea.touched))">                  
+                              <p class="text-danger" *ngIf="emplea.errors.required">Campo requerido</p>
+                            </div>
+                          </div>
+                    </div>      
+                
+                      <div class="form-row">        
+                        <div class="form-group col-md-2">
+                            <label for="date">Fecha</label>
+                            <input [(ngModel)]="frmcita.fecha_cita" required pattern="^([2]\d{3}-(0[1-9]|1[0-2])-(0[1-9]|[12]\d|3[01]))$" [(ngModel)]="objecita.fecha_cita" name="fecha" type="text" class="form-control" id="" #fech="ngModel" placeholder="yyyy-mm-dd" autocomplete="off">
+                            <div *ngIf="(fech.invalid && (fech.dirty || fech.touched))">                  
+                              <p class="text-danger" *ngIf="fech.errors.required">Campo requerido</p>
+                              <p class="text-danger" *ngIf="fech.errors.pattern">Formato de fecha incorrecto</p>
+                            </div>
+                        </div>
+                        <!--<div class="form-group col-md-1">
+                          <label for="time">hora</label>
+                          <input type="text" [(ngModel)]="frmcita.hora" [(ngModel)]="objecita.hora"  class="form-control" id="time">
+                        </div>-->
+                        <div class="form-group col-md-2">
+                          <label for="time2">hora</label>
+                          <select id="time2" [(ngModel)]="frmcita.hora" required #ho="ngModel" name="hora" [(ngModel)]="objecita.hora" class="form-control">
+                            <option *ngFor="let hor of horarios" [ngValue]="hor.hora_inicio">{{hor.hora_inicio}}</option>                
+                          </select>
+                          <div *ngIf="(ho.invalid && (ho.dirty || ho.touched))">                  
+                            <p class="text-danger" *ngIf="ho.errors.required">Campo requerido</p>
+                          </div>
+                        </div>
+                        <div class="form-group col-md-4">
+                          <label for="nombMasc">Nombre de mascota</label>
+                          <input [(ngModel)]="frmcita.nombre_mascota" required pattern="^[a-zA-z]+$" #nombMas="ngModel" [(ngModel)]="objecita.nombre_mascota" name="nombMasc" type="text" class="form-control" id="" autocomplete="off">
+                          <div *ngIf="(nombMas.invalid && (nombMas.dirty || nombMas.touched))">                  
+                            <p class="text-danger" *ngIf="nombMas.errors.required">Campo requerido</p>
+                            <p class="text-danger" *ngIf="nombMas.errors.pattern">Formato incorrecto</p>
+                          </div>
+                        </div>
+                        <div class="form-group col-md-2">
+                          <label for="vacu1">Vacunación</label>
+                          <input [(ngModel)]="frmcita.vacunacion" required pattern="^[a-zA-z]+$" #vacuna1="ngModel" type="text" name="vacunac" class="form-control" id="" autocomplete="off">
+                          <div *ngIf="(vacuna1.invalid && (vacuna1.dirty || vacuna1.touched))">                  
+                            <p class="text-danger" *ngIf="vacuna1.errors.required">Campo requerido</p>
+                            <p class="text-danger" *ngIf="vacuna1.errors.pattern">Formato incorrecto</p>
+                          </div>
+                        </div> 
+                        <div class="form-group col-md-1">
+                          <label for="edad">Edad</label>
+                          <input [(ngModel)]="frmcita.edad" required #eda="ngModel" type="text" name="edad" class="form-control" id="" autocomplete="off">
+                          <div *ngIf="(eda.invalid && (eda.dirty || eda.touched))">                  
+                            <p class="text-danger" *ngIf="eda.errors.required">Campo requerido</p>
+                          </div>
+                        </div> 
+                        <div class="form-group col-md-1">
+                          <label for="sexo">Sexo</label>
+                          <select [(ngModel)]="frmcita.sexo" required #sex="ngModel"  name="sexo" id="" class="form-control" >
+                            <option value="M">M</option>
+                            <option value="F">F</option>
+                          </select>
+                          <div *ngIf="(sex.invalid && (sex.dirty || sex.touched))">                  
+                            <p class="text-danger" *ngIf="sex.errors.required">Campo requerido</p>
+                          </div>
+                        </div>          
+                      </div>
+                
+                      <div class="form-row">
+                        <div class="form-group col-md-4">
+                            <label for="especi">Especie</label>
+                            <input [(ngModel)]="frmcita.especie" required pattern="^[a-zA-z]+" #especi="ngModel" name="especie" type="text" class="form-control" id="" autocomplete="off">
+                            <div *ngIf="(especi.invalid && (especi.dirty || especi.touched))">                  
+                              <p class="text-danger" *ngIf="especi.errors.required">Campo requerido</p>
+                              <p class="text-danger" *ngIf="especi.errors.pattern">Formato incorrecto</p>
+                            </div>
+                          </div>
+                          <div class="form-group col-md-4">
+                            <label for="raz">Raza</label>
+                            <input [(ngModel)]="frmcita.raza" required pattern="^[a-zA-z]+" #raza="ngModel" name="raz" type="text" class="form-control" id="" autocomplete="off">
+                            <div *ngIf="(raza.invalid && (raza.dirty || raza.touched))">                  
+                              <p class="text-danger" *ngIf="raza.errors.required">Campo requerido</p>
+                              <p class="text-danger" *ngIf="raza.errors.pattern">Formato incorrecto</p>
+                            </div>
+                          </div>                          
+                          
+                          <div class="form-group col-md-4">
+                            <label for="color">Color</label>
+                            <input [(ngModel)]="frmcita.color" required pattern="^[a-zA-z]+" #colo="ngModel" name="color" type="text" class="form-control" id="" autocomplete="off">
+                            <div *ngIf="(colo.invalid && (colo.dirty || colo.touched))">                  
+                              <p class="text-danger" *ngIf="colo.errors.required">Campo requerido</p>
+                              <p class="text-danger" *ngIf="colo.errors.pattern">Formato incorrecto</p>
+                            </div>
+                          </div>             
+                      </div>
+                
+                      <div class="form-row">  
+                          <div class="form-group col-md-4">
+                            <label for="vacuRe">Vacunas realizadas</label>
+                            <textarea [(ngModel)]="frmcita.vacunas_realizadas" required #vacur="ngModel" name="vacuRe" class="form-control" id="" rows="3"></textarea>
+                            <div *ngIf="(vacur.invalid && (vacur.dirty || vacur.touched))">                  
+                              <p class="text-danger" *ngIf="vacur.errors.required">Campo requerido</p>
+                            </div>
+                          </div>
+                          <div class="form-group col-md-8">
+                            <label for="motivo">Motivo de la cita</label>
+                            <textarea [(ngModel)]="frmcita.motivo" required #motiv="ngModel" class="form-control" name="motivo" id="" rows="3"></textarea>
+                            <div *ngIf="(motiv.invalid && (motiv.dirty || motiv.touched))">                  
+                              <p class="text-danger" *ngIf="motiv.errors.required">Campo requerido</p>
+                            </div>
+                          </div>
+                      </div>
+                     <div class="row justify-content-center">
+                       <div class="col-md-2">
+                        <button (click)="validaCita();" [disabled]="!citaForm.form.valid" class="btn btn-primary btn-lg">Registrar</button>    
+                       </div>
+                              
+                     </div>
+                    
+                    </form> 
+                      
+                </div>
+            </div>
+            <!--Fin Formulario-->
+        </div>
+    </div>
+
+</body>
+
+</html>
+

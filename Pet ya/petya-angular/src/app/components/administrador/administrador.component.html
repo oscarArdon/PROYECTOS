@@ -1,0 +1,150 @@
+<div class="consulta" id="servicios">
+  <div class="separador">
+    <h6 class="display-4">Dashboard</h6>
+      <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+        <a class="nav-link" id="v-pills-empleado-tab" data-toggle="pill" routerLink="/crear-empleado"
+        routerLinkActive="active" role="tab" aria-controls="v-pills-empleado" aria-selected="true">Agregar Empleados</a>
+        <a class="nav-link" id="v-pills-empleado-tab" data-toggle="pill" routerLink="/listar-empleado"
+        routerLinkActive="active"  role="tab" aria-controls="v-pills-empleado" aria-selected="true">Lista de Empleados</a>
+        <a class="nav-link" id="v-pills-horario-tab" data-toggle="pill" routerLink="/crear-horarios" role="tab"
+        routerLinkActive="active"  aria-controls="v-pills-horario" aria-selected="false">Agregar Horarios</a>
+        <a class="nav-link" id="v-pills-horario-tab" data-toggle="pill" routerLink="/listar-horarios" role="tab"
+        routerLinkActive="active"  aria-controls="v-pills-horario" aria-selected="false">Listar Horarios</a>        
+      </div>
+  </div>
+</div>
+
+<!--
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard cliente</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.js"
+    integrity="sha512-WNLxfP/8cVYL9sj8Jnp6et0BkubLP31jhTG9vhL/F5uEZmg5wEzKoXp1kJslzPQWwPT1eyMiSxlKCgzHLOTOTQ=="
+    crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+    integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+    crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+    integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+    crossorigin="anonymous"></script>
+</head>
+
+<body>
+
+  <nav class="navbar navbar-expand-lg navbar-light">
+    <a class="navbar-brand" href="#">
+      <img src="../../assets/img/logo.png" width="170" height="70" loading="lazy">
+    </a>
+    <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId"
+      aria-controls="collapsibleNavId" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="collapsibleNavId">
+      <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+        <li class="nav-item active">
+          <a class="nav-link"><span class="sr-only"></span>Administrador</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link">{{authService.userData.email}}</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" (click)="authService.SignOut()">Cerrar sesión</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="container-fluid" id="header">
+    <div class="row bg-vet">
+      <div class="col-lg-8">
+        <div class="fondo mr-5"></div>
+      </div>
+      <div class="col-lg-4 my-auto">
+        <div class="parrafo">
+          <p>Emergencia?<br>
+            2265-7895</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="consulta" id="servicios">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-lg-2">
+          <div class="separador">
+            <p class="titulo">Dashboard</p>
+            <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+              <a class="nav-link active" id="v-pills-empleado-tab" data-toggle="pill" href="#v-pills-empleado"
+                role="tab" aria-controls="v-pills-empleado" aria-selected="true">1. Empleados</a>
+              <a class="nav-link" id="v-pills-horario-tab" data-toggle="pill" href="#v-pills-horario" role="tab"
+                aria-controls="v-pills-horario" aria-selected="false">2. Horarios</a>
+              <a class="nav-link" id="v-pills-perfil-tab" data-toggle="pill" href="#v-pills-perfil" role="tab"
+                aria-controls="v-pills-perfil" aria-selected="false">3. Mi perfil</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-9">
+          <div class="tab-content" id="v-pills-tabContent">
+
+            <div class="tab-pane fade show active" id="v-pills-empleado" role="tabpanel"
+              aria-labelledby="v-pills-empleado-tab">
+              <div class="row">
+
+                <div class="col-lg-4">
+                  <app-crear-empleado></app-crear-empleado>
+                </div>
+                <div class="col-lg-8">
+                  <app-listar-empleados></app-listar-empleados>
+                </div>
+              </div>
+            </div>
+
+            <div class="tab-pane fade" id="v-pills-horario" role="tabpanel" aria-labelledby="v-pills-horario-tab">
+              <div class="row">
+                
+                <div class="col-lg-4">
+                  <app-crear-horarios></app-crear-horarios>
+                </div>
+                <div class="col-lg-8">
+                  <app-listar-horarios></app-listar-horarios>
+                </div>                
+              </div>
+            </div>
+           
+            <div class="tab-pane fade" id="v-pills-perfil" role="tabpanel" aria-labelledby="v-pills-perfil-tab">
+              <div class="row">
+                <div class="col-lg-12 mx-auto">
+                  <div class="media">
+                    <img class="align-self-start mr-1 img-thumbnail rounded-circle"
+                      src="{{(authService.userData.photoURL) ? authService.userData.photoURL : '/assets/dummy-user.png'}}"
+                      alt="{{authService.userData.displayName}}">
+                    <div class="media-body">
+                      <h1>Hello:
+                        <strong>{{(authService.userData.displayName) ? authService.userData.displayName : 'User'}}</strong>
+                      </h1>
+                      <p>User ID: <strong>{{authService.userData.uid}}</strong></p>
+                      <p>Email: <strong>{{authService.userData.email}}</strong></p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
+-->

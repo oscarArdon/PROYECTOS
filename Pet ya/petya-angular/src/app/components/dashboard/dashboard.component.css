@@ -1,0 +1,38 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+html{
+    scroll-behavior: smooth;
+}
+
+.consulta, .consejos{
+    background-color: white;
+    clear: both;
+    height: min-content;
+    position: relative;
+    margin-top: 4%;
+    margin-bottom: 8%;
+}
+
+.separador{
+    border-right: 2px solid #096B67;
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+    height: min-content;
+}
+
+.nav-pills > .nav-link{    
+    background-color: white !important;
+    color: #4A5151 !important;
+}
+
+.nav-pills > .nav-link.active{    
+    background-color: white !important;
+    color: #096B67 !important;
+    font-weight: bold;
+    border-right: 5px solid #096B67;
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+}

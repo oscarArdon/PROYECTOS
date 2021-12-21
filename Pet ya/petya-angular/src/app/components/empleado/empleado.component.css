@@ -1,0 +1,67 @@
+html{
+    scroll-behavior: smooth;
+}
+
+@font-face{
+    font-family: 'freestyle-script';
+    src: url(../../../assets/fonts/FREESCPT.TTF);
+}
+
+.navbar{    
+    background-color: #096B67 !important;        
+}
+
+.nav-item > a{
+    color: white !important;
+    cursor: pointer;
+}
+
+.nav-item{
+    margin-left: 40px;
+}
+
+.bg-vet, form > .btn-reg, form > .btn-reg:hover{
+    background-color: #096B67 !important;    
+    color: white;
+}
+
+
+.btn-reg, .btn-reg:hover{
+    background-color: #096B67 !important;    
+    color: white;
+}
+
+.btn-reg, .btn-reg:hover{
+    background-color: #096B67 !important;    
+    color: white;
+}
+
+.fondo{
+    background-image: url(../../../assets/img/fotos/filename.png);
+    background-size: contain;    
+    background-repeat: no-repeat;
+    background-position: right;
+    height: 150px;    
+    position: relative;
+    top: 14;
+}
+
+.parrafo{
+    font-size: 3vw;
+    font-family: freestyle-script;
+    color: white;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+@media screen and (max-width: 995px){
+    #header{
+        display: none;
+    }
+
+    nav{
+        position: fixed;
+        top: 0;
+    }
+}

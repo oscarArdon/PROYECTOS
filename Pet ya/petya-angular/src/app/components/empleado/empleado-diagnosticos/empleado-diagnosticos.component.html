@@ -1,0 +1,202 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard cliente</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.js"
+        integrity="sha512-WNLxfP/8cVYL9sj8Jnp6et0BkubLP31jhTG9vhL/F5uEZmg5wEzKoXp1kJslzPQWwPT1eyMiSxlKCgzHLOTOTQ=="
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+        integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+        crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+        crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <!--INICIO MENU -->
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <a class="navbar-brand" href="#">
+            <img src="../../assets/img/logo.png" width="170" height="70" loading="lazy">
+        </a>
+        <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId"
+            aria-controls="collapsibleNavId" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="collapsibleNavId">
+            <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+                <li class="nav-item active">
+                    <a class="nav-link" routerLink="/index">Inicio<span class="sr-only"></span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link">{{authService.userData.email}}</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" (click)="authService.SignOut()">Cerrar sesión</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <!--FIN MENU -->
+    <div class="container-fluid" id="header">
+        <div class="row bg-vet">
+            <div class="col-lg-8">
+                <div class="fondo mr-5"></div>
+            </div>
+            <div class="col-lg-4 my-auto">
+                <div class="parrafo">
+                    <p>Emergencia?<br>
+                        2265-7895</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--Contenido-->
+    <div class="container-fluid">
+        <div class="row">
+            <!--Menu lateral-->
+            <div class="col-lg-3">
+                <app-dashboard></app-dashboard>
+            </div>
+            <!--Fin Menu lateral-->
+            <!--Formulario-->
+            <div class="col-lg-9">
+                <form #diagnForm="ngForm">
+                <div class="col-lg-9 mx-auto">
+                    <div class="card mt-4 mb-5">
+                        <div class="card-body">
+                            <h3>Datos de cita</h3>
+                            <div>
+                                <!-- TO UPDATE -->
+                                <div class="form-row">
+                                    <div class="form-group col-md-5">
+                                        <p>Nombre de la mascota</p>
+                                        <input type="text" readonly class="form-control" name="id_cliente"
+                                            [(ngModel)]="cita.nombre_mascota" placeholder="Id cliente">
+                                    </div>
+
+
+                                    <div class="form-group col-md-3">
+                                        <p>Edad</p>
+                                        <input type="text" readonly class="form-control" name="edad"
+                                            [(ngModel)]="formulariocita.edad" placeholder="Edad">
+                                    </div>
+
+
+                                    <div class="form-group col-md-4">
+                                        <p>Raza</p>
+                                        <input type="text" readonly class="form-control" name="raza"
+                                            [(ngModel)]="formulariocita.raza" placeholder="Raza">
+                                    </div>
+
+
+                                </div>
+
+                                <div class="form-row">
+                                    <div class="form-group col-md-6">
+                                        <p>Vacunacion</p>
+                                        <input type="text" readonly class="form-control" name="vacunacion"
+                                            [(ngModel)]="formulariocita.vacunacion" placeholder="Vacunacion">
+                                    </div>
+
+                                    <div class="form-group col-md-6">
+                                        <p>Vacunas realizadas</p>
+                                        <input type="text" readonly class="form-control" name="vacunas_realizadas"
+                                            [(ngModel)]="formulariocita.vacunas_realizadas"
+                                            placeholder="Vacunas Realizadas">
+                                    </div>
+                                </div>
+
+                                <div class="form-row">
+
+                                    <div class="form-group col-md-4">
+                                        <p>Peso (Lb.)</p>
+                                        <input type="text" required pattern="^\d{1,6}\.\d{0,2}$" class="form-control"
+                                            name="peso" autocomplete="off" [(ngModel)]="formulariocita.peso" #pesoC="ngModel"
+                                            placeholder="00.00">
+                                        <div *ngIf="(pesoC.invalid && (pesoC.dirty || pesoC.touched))">
+                                            <p class="text-danger" *ngIf="pesoC.errors.pattern">Peso con formato
+                                                incorrecto</p>
+                                            <p class="text-danger" *ngIf="pesoC.errors.required">Campo requerido</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group col-md-4">
+                                        <p>Pulso (p/m)</p>
+                                        <input type="text" required pattern="^\d{1,6}\.\d{0,2}$" class="form-control"
+                                            name="pulso" autocomplete="off" [(ngModel)]="formulariocita.pulso" #pulsoC="ngModel"
+                                            placeholder="00.00">
+                                        <div *ngIf="(pulsoC.invalid && (pulsoC.dirty || pulsoC.touched))">
+                                            <p class="text-danger" *ngIf="pulsoC.errors.pattern">Pulso con formato
+                                                incorrecto</p>
+                                            <p class="text-danger" *ngIf="pulsoC.errors.required">Campo requerido</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group col-md-4">
+                                        <p>Temperatura (°c)</p>
+                                        <input type="text" required pattern="^\d{1,6}\.\d{0,2}$" class="form-control"
+                                            name="temperatura" autocomplete="off" [(ngModel)]="formulariocita.temperatura" #tempC="ngModel"
+                                            placeholder="00.00">
+
+                                        <div *ngIf="(tempC.invalid && (tempC.dirty || tempC.touched))">
+                                            <p class="text-danger" *ngIf="tempC.errors.pattern">Temperatura con formato
+                                                incorrecto</p>
+                                            <p class="text-danger" *ngIf="tempC.errors.required">Campo requerido</p>
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <input type="text" required class="form-control" name="diagnostico_final" autocomplete="off"
+                                        [(ngModel)]="diagnostico_final" #diagC="ngModel" placeholder="Diagnostico">
+
+                                        <div *ngIf="(diagC.invalid && (diagC.dirty || diagC.touched))">
+                                            <p class="text-danger" *ngIf="diagC.errors.required">Campo requerido</p>
+                                        </div>
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" required class="form-control" name="tratamiento" autocomplete="off" [(ngModel)]="tratamiento" #trataC="ngModel"
+                                        placeholder="Tratamiento">
+                                        <div *ngIf="(trataC.invalid && (trataC.dirty || trataC.touched))">
+                                            <p class="text-danger" *ngIf="trataC.errors.required">Campo requerido</p>
+                                        </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputState">Estado</label>
+                                    <select (change)="onChange($event.target.value)" id="inputState" class="form-control" #opiC="ngModel" [(ngModel)]="cita.estado">
+                                        <option value="F" selected>{{F}}</option>
+                                        
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <button class="btn btn-reg mr-3" (click)="GenerarDiagnostico()" [disabled]="!diagnForm.form.valid">
+                                        <i class="fas fa-plus-circle"></i> Finalizar
+                                    </button>
+                                    <button class="btn btn-warning" type="reset">
+                                        <i class="fas fa-sync-alt"></i> Reset
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+            </div>
+            <!--Fin Formulario-->
+        </div>
+    </div>
+
+</body>
+
+</html>
