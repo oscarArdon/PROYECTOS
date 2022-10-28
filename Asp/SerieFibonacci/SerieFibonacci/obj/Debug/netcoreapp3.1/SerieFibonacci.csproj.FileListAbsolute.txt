@@ -1,0 +1,14 @@
+C:\xampp\htdocs\GitHub\PROYECTOS\Asp\SerieFibonacci\SerieFibonacci\bin\Debug\netcoreapp3.1\SerieFibonacci.exe
+C:\xampp\htdocs\GitHub\PROYECTOS\Asp\SerieFibonacci\SerieFibonacci\bin\Debug\netcoreapp3.1\SerieFibonacci.deps.json
+C:\xampp\htdocs\GitHub\PROYECTOS\Asp\SerieFibonacci\SerieFibonacci\bin\Debug\netcoreapp3.1\SerieFibonacci.runtimeconfig.json
+C:\xampp\htdocs\GitHub\PROYECTOS\Asp\SerieFibonacci\SerieFibonacci\bin\Debug\netcoreapp3.1\SerieFibonacci.runtimeconfig.dev.json
+C:\xampp\htdocs\GitHub\PROYECTOS\Asp\SerieFibonacci\SerieFibonacci\bin\Debug\netcoreapp3.1\SerieFibonacci.dll
+C:\xampp\htdocs\GitHub\PROYECTOS\Asp\SerieFibonacci\SerieFibonacci\bin\Debug\netcoreapp3.1\SerieFibonacci.pdb
+C:\xampp\htdocs\GitHub\PROYECTOS\Asp\SerieFibonacci\SerieFibonacci\obj\Debug\netcoreapp3.1\SerieFibonacci.csproj.AssemblyReference.cache
+C:\xampp\htdocs\GitHub\PROYECTOS\Asp\SerieFibonacci\SerieFibonacci\obj\Debug\netcoreapp3.1\SerieFibonacci.GeneratedMSBuildEditorConfig.editorconfig
+C:\xampp\htdocs\GitHub\PROYECTOS\Asp\SerieFibonacci\SerieFibonacci\obj\Debug\netcoreapp3.1\SerieFibonacci.AssemblyInfoInputs.cache
+C:\xampp\htdocs\GitHub\PROYECTOS\Asp\SerieFibonacci\SerieFibonacci\obj\Debug\netcoreapp3.1\SerieFibonacci.AssemblyInfo.cs
+C:\xampp\htdocs\GitHub\PROYECTOS\Asp\SerieFibonacci\SerieFibonacci\obj\Debug\netcoreapp3.1\SerieFibonacci.csproj.CoreCompileInputs.cache
+C:\xampp\htdocs\GitHub\PROYECTOS\Asp\SerieFibonacci\SerieFibonacci\obj\Debug\netcoreapp3.1\SerieFibonacci.dll
+C:\xampp\htdocs\GitHub\PROYECTOS\Asp\SerieFibonacci\SerieFibonacci\obj\Debug\netcoreapp3.1\SerieFibonacci.pdb
+C:\xampp\htdocs\GitHub\PROYECTOS\Asp\SerieFibonacci\SerieFibonacci\obj\Debug\netcoreapp3.1\SerieFibonacci.genruntimeconfig.cache
